@@ -89,7 +89,7 @@
             ) {
               var webAuth = new auth0.WebAuth(credentials);
 
-              var hash = $location.hash() || window.location.hash;
+              var hash = $location.hash() || window.location.hash || '#' + location.replace(/http.?:\/\/[^/]+/, '').slice(1);
 
               webAuth.parseHash(
                 { hash: hash, _idTokenVerification: shouldVerifyIdToken },
